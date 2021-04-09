@@ -1,5 +1,9 @@
 package server;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import model.MessageModel;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,13 +24,20 @@ public class MyServer {
         clientSocket = serverSocket.accept();
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
         String greeting = in.readLine();
-        if ("hello server".equals(greeting)) {
-            out.println("hello client!");
-        }
-        else {
-            out.println("unrecognised greeting");
-        }
+        out.println(readMessage(greeting));
+//        if ("hello server".equals(greeting)) {
+//            out.println("hello client!");
+//        }
+//        else {
+//            out.println("unrecognised greeting");
+//        }
+    }
+    private String readMessage(String msg) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        MessageModel messageModel = objectMapper.readValue(msg, MessageModel.class);
+        return messageModel.toString();
     }
 
     public void stop() throws IOException{

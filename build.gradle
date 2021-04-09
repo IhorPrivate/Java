@@ -29,6 +29,11 @@ dependencies {
     implementation group: 'org.openjfx', name: 'javafx-swing', version: '16'
     // https://mvnrepository.com/artifact/org.openjfx/javafx
     implementation group: 'org.openjfx', name: 'javafx', version: '16', ext: 'pom'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.2'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.2'
+
 
     apply plugin: "org.openjfx.javafxplugin"
 
