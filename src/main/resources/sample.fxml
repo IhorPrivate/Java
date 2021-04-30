@@ -8,8 +8,7 @@
           vgap="10"
           stylesheets="@static/style.css"
           prefHeight="400"
-          prefWidth="600"
->
+          prefWidth="600">
 
     <Button text="Send socket" fx:id="send" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="custom" onAction="#click1"/>
     <Button text="Echo Server" fx:id="button2" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#click" styleClass="errorLabel"/>
